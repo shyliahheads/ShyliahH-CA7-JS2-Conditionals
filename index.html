@@ -13,18 +13,27 @@
     <p id="demo">Welcome to Bear Ninja Hunter!</p>
 
     <script>
-        // Step 1: Ask the player for their name using prompt().
+     // Step 1: Ask the player for their name.
+let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
 
-        // Step 2: Greet the player using alert().
-        // Remember to escape the apostrophe in Let's if needed.
+// Step 2: Greet the player.
+alert("Hi " + playerName + " Let's Play!!");
 
-        // Step 3: Ask the player to choose Bear, Ninja, or Hunter.
+// Step 3: Ask the player to choose a character.
+let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-        // Step 4: Store the computer's choice as Bear.
+// Step 4: Store the computer's choice.
+let computerChoice = "Bear";
 
-        // Step 5: Build the results message using concatenation.
+// Step 5: Create the results message using concatenation.
+let resultMessage = playerName + " chose " + playerChoice +
+    ", computer chose " + computerChoice;
 
-        // Step 6: Display the message using innerHTML and console.log().
+// Step 6: Display the result on the webpage.
+document.getElementById("demo").innerHTML = resultMessage;
+
+// Display the result in the browser console.
+console.log(resultMessage);
     </script>
 </body>
 </html>
