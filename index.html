@@ -12,29 +12,89 @@
 
     <p id="demo">Welcome to Bear Ninja Hunter!</p>
 
-    <script>
-     // Step 1: Ask the player for their name.
-let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
 
-// Step 2: Greet the player.
-alert("Hi " + playerName + " Let's Play!!");
+<script>
+    // Ask the player for their name.
+    let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
 
-// Step 3: Ask the player to choose a character.
-let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+    // Greet the player with a personalized message.
+    alert("Hi " + playerName + " Let's Play!!");
 
-// Step 4: Store the computer's choice.
-let computerChoice = "Bear";
+    // Ask the player to choose Bear, Ninja, or Hunter.
+    let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-// Step 5: Create the results message using concatenation.
-let resultMessage = playerName + " chose " + playerChoice +
-    ", computer chose " + computerChoice;
+    // Keep the computer's choice hard-coded to Bear.
+    let computerChoice = "Bear";
 
-// Step 6: Display the result on the webpage.
-document.getElementById("demo").innerHTML = resultMessage;
+    // Create a variable to store the game result.
+    let gameResult = "";
 
-// Display the result in the browser console.
-console.log(resultMessage);
-    </script>
+    // Use a switch statement to evaluate all nine combinations.
+    switch (playerChoice) {
+        case "Bear":
+            switch (computerChoice) {
+                case "Bear":
+                    gameResult = "Tie!!";
+                    break;
+                case "Ninja":
+                    gameResult = "You Win!!";
+                    break;
+                case "Hunter":
+                    gameResult = "Computer Wins!!";
+                    break;
+            }
+            break;
+
+        case "Ninja":
+            switch (computerChoice) {
+                case "Bear":
+                    gameResult = "Computer Wins!!";
+                    break;
+                case "Ninja":
+                    gameResult = "Tie!!";
+                    break;
+                case "Hunter":
+                    gameResult = "You Win!!";
+                    break;
+            }
+            break;
+
+        case "Hunter":
+            switch (computerChoice) {
+                case "Bear":
+                    gameResult = "You Win!!";
+                    break;
+                case "Ninja":
+                    gameResult = "Computer Wins!!";
+                    break;
+                case "Hunter":
+                    gameResult = "Tie!!";
+                    break;
+            }
+            break;
+    }
+
+    // Use if...else statements to create the personalized result message.
+    let resultMessage = "";
+
+    if (gameResult === "Tie!!") {
+        resultMessage = playerName + " chose " + playerChoice +
+            ", computer chose " + computerChoice + ", It's a Tie!!";
+    } else if (gameResult === "You Win!!") {
+        resultMessage = playerName + " chose " + playerChoice +
+            ", computer chose " + computerChoice + ", You Win!!";
+    } else {
+        resultMessage = playerName + " chose " + playerChoice +
+            ", computer chose " + computerChoice + ", Computer Wins!!";
+    }
+
+    // Display the game result on the webpage.
+    document.getElementById("demo").innerHTML = resultMessage;
+
+    // Display the same game result in the browser console.
+    console.log(resultMessage);
+</script>
+
 </body>
 </html>
 
