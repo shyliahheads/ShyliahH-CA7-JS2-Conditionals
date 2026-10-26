@@ -1,100 +1,102 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Set the character encoding and page settings. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Shyliah Heads">
     <title>Bear Ninja Hunter</title>
 </head>
 <body>
+    <!-- Display the game title. -->
     <h1>Bear Ninja Hunter</h1>
 
+    <!-- Display the game result on the webpage. -->
     <p id="demo">Welcome to Bear Ninja Hunter!</p>
 
+    <script>
+        // Ask the player for their name.
+        let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
 
-<script>
-    // Ask the player for their name.
-    let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
+        // Greet the player with a personalized message.
+        alert("Hi " + playerName + " Let's Play!!");
 
-    // Greet the player with a personalized message.
-    alert("Hi " + playerName + " Let's Play!!");
+        // Ask the player to choose Bear, Ninja, or Hunter.
+        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
 
-    // Ask the player to choose Bear, Ninja, or Hunter.
-    let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+        // Keep the computer's choice hard-coded to Bear.
+        let computerChoice = "Bear";
 
-    // Keep the computer's choice hard-coded to Bear.
-    let computerChoice = "Bear";
+        // Create a variable to store the game result.
+        let gameResult = "";
 
-    // Create a variable to store the game result.
-    let gameResult = "";
+        // Use nested switch statements to evaluate all nine combinations.
+        switch (playerChoice) {
+            case "Bear":
+                switch (computerChoice) {
+                    case "Bear":
+                        gameResult = "Tie!!";
+                        break;
+                    case "Ninja":
+                        gameResult = "You Win!!";
+                        break;
+                    case "Hunter":
+                        gameResult = "Computer Wins!!";
+                        break;
+                }
+                break;
 
-    // Use a switch statement to evaluate all nine combinations.
-    switch (playerChoice) {
-        case "Bear":
-            switch (computerChoice) {
-                case "Bear":
-                    gameResult = "Tie!!";
-                    break;
-                case "Ninja":
-                    gameResult = "You Win!!";
-                    break;
-                case "Hunter":
-                    gameResult = "Computer Wins!!";
-                    break;
-            }
-            break;
+            case "Ninja":
+                switch (computerChoice) {
+                    case "Bear":
+                        gameResult = "Computer Wins!!";
+                        break;
+                    case "Ninja":
+                        gameResult = "Tie!!";
+                        break;
+                    case "Hunter":
+                        gameResult = "You Win!!";
+                        break;
+                }
+                break;
 
-        case "Ninja":
-            switch (computerChoice) {
-                case "Bear":
-                    gameResult = "Computer Wins!!";
-                    break;
-                case "Ninja":
-                    gameResult = "Tie!!";
-                    break;
-                case "Hunter":
-                    gameResult = "You Win!!";
-                    break;
-            }
-            break;
+            case "Hunter":
+                switch (computerChoice) {
+                    case "Bear":
+                        gameResult = "You Win!!";
+                        break;
+                    case "Ninja":
+                        gameResult = "Computer Wins!!";
+                        break;
+                    case "Hunter":
+                        gameResult = "Tie!!";
+                        break;
+                }
+                break;
+        }
 
-        case "Hunter":
-            switch (computerChoice) {
-                case "Bear":
-                    gameResult = "You Win!!";
-                    break;
-                case "Ninja":
-                    gameResult = "Computer Wins!!";
-                    break;
-                case "Hunter":
-                    gameResult = "Tie!!";
-                    break;
-            }
-            break;
-    }
+        // Use if...else if...else to create the personalized result message.
+        let resultMessage = "";
 
-    // Use if...else statements to create the personalized result message.
-    let resultMessage = "";
+        if (gameResult === "Tie!!") {
+            resultMessage = playerName + " chose " + playerChoice +
+                ", computer chose " + computerChoice + ", Tie!!";
+        } else if (gameResult === "You Win!!") {
+            resultMessage = playerName + " chose " + playerChoice +
+                ", computer chose " + computerChoice + ", You Win!!";
+        } else {
+            resultMessage = playerName + " chose " + playerChoice +
+                ", computer chose " + computerChoice + ", Computer Wins!!";
+        }
 
-    if (gameResult === "Tie!!") {
-        resultMessage = playerName + " chose " + playerChoice +
-            ", computer chose " + computerChoice + ", It's a Tie!!";
-    } else if (gameResult === "You Win!!") {
-        resultMessage = playerName + " chose " + playerChoice +
-            ", computer chose " + computerChoice + ", You Win!!";
-    } else {
-        resultMessage = playerName + " chose " + playerChoice +
-            ", computer chose " + computerChoice + ", Computer Wins!!";
-    }
+        // Display the result on the HTML page.
+        document.getElementById("demo").innerHTML = resultMessage;
 
-    // Display the game result on the webpage.
-    document.getElementById("demo").innerHTML = resultMessage;
-
-    // Display the same game result in the browser console.
-    console.log(resultMessage);
-</script>
-
+        // Display the result in the browser console.
+        console.log(resultMessage);
+    </script>
 </body>
 </html>
+```
 
