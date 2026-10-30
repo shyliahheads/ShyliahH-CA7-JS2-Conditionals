@@ -17,13 +17,13 @@
 
     <script>
         // Ask the player for their name.
-        let playerName = prompt("Welcome to Bear Hunter Ninja! What is your name?");
+        let playerName = prompt("Welcome to Bear Ninja Hunter! What is your name?");
 
         // Greet the player with a personalized message.
-        alert("Hi " + playerName + " Let's Play!!");
+        alert("Hi " + playerName + "! Let's Play!!");
 
         // Ask the player to choose Bear, Ninja, or Hunter.
-        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?");
+        let playerChoice = prompt("Who are you: Bear, Ninja, or Hunter?").trim().toLowerCase();
 
         // Keep the computer's choice hard-coded to Bear.
         let computerChoice = "Bear";
@@ -33,7 +33,7 @@
 
         // Use switch statements to evaluate all nine combinations.
         switch (playerChoice) {
-            case "Bear":
+            case "bear":
                 switch (computerChoice) {
                     case "Bear":
                         gameResult = "Tie!!";
@@ -47,7 +47,7 @@
                 }
                 break;
 
-            case "Ninja":
+            case "ninja":
                 switch (computerChoice) {
                     case "Bear":
                         gameResult = "Computer Wins!!";
@@ -61,7 +61,7 @@
                 }
                 break;
 
-            case "Hunter":
+            case "hunter":
                 switch (computerChoice) {
                     case "Bear":
                         gameResult = "You Win!!";
@@ -73,6 +73,10 @@
                         gameResult = "Tie!!";
                         break;
                 }
+                break;
+
+            default:
+                gameResult = "Invalid Choice!! Please refresh and try again.";
                 break;
         }
 
@@ -85,9 +89,11 @@
         } else if (gameResult === "You Win!!") {
             resultMessage = playerName + " chose " + playerChoice +
                 ", computer chose " + computerChoice + ", You Win!!";
-        } else {
+        } else if (gameResult === "Computer Wins!!") {
             resultMessage = playerName + " chose " + playerChoice +
                 ", computer chose " + computerChoice + ", Computer Wins!!";
+        } else {
+            resultMessage = gameResult;
         }
 
         // Display the result on the HTML page.
@@ -97,4 +103,4 @@
         console.log(resultMessage);
     </script>
 </body>
-
+</html>
